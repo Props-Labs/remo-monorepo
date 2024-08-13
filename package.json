@@ -1,12 +1,15 @@
 {
-  "name": "monorepo-template",
+  "name": "REMO",
   "version": "0.0.0",
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": ""
+  },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
+    "@types/aws-lambda": "8.10.143",
     "typescript": "5.3.3"
   },
   "dependencies": {

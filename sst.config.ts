@@ -3,17 +3,23 @@
 export default $config({
   app(input) {
     return {
-      name: "monorepo-template",
+      name: "remo-monorepo",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
+      providers: {
+        aws: {
+          version: "6.41.0"
+        }
+      },
     };
   },
   async run() {
-    await import("./infra/storage");
-    const api = await import("./infra/api");
-
-    return {
-      api: api.myApi.url,
-    };
+    new sst.aws.SvelteKit("remo-frontend", {
+      path: "packages/frontend/",
+      // domain: {
+      //   name: "re.mo",
+      //   redirects: ["www.re.mo"]
+      // }
+    });
   },
 });
