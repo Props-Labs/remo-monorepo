@@ -1,0 +1,1 @@
+export const vpc = new sst.aws.Vpc(`${process.env.BASE_PROJECT_PREFIX}_VPC`);
